@@ -255,8 +255,6 @@ function TvScreen() {
           <SystemClock />
           <WorldClockHorizontal />
           <SpotRate />
-
-          <PoweredByAurify />
         </Grid>
         <Grid
           xs={12}
@@ -271,15 +269,15 @@ function TvScreen() {
           <Box
             sx={{
               height: "auto",
-              width: { xs: "40vw", sm: "25vw" },
+              width: { xs: "40vw", sm: "20vw" },
               marginBottom: { xs: "20px", sm: "0vw" },
             }}
           >
             <img src={mainLogo} alt="" className="object-contain w-full" />
           </Box>
           <CommodityTable items={commodities} />
+          <PoweredByAurify />
         </Grid>
-
 
         <Grid
           md={12}
