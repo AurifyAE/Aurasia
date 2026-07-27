@@ -9,98 +9,141 @@ const NewsTicker = ({ newsItems = [] }) => {
       : [{ description: "Welcome to Aurasia Updates" }];
 
   return (
-    <Box
-      sx={{
-        position: "relative",
-        width: "100%",
-        height: {
-          xs: "38px",
-          lg: "2.7vw",
-        },
-        display: "flex",
-        alignItems: "center",
-        overflow: "hidden",
-        backdropFilter: "blur(0.6vw)",
-        background: `
-          linear-gradient(
-            90deg,
-            rgba(15, 12, 8, 0.85) 0%,
-            rgba(30, 24, 18, 0.8) 40%,
-            rgba(10, 8, 6, 0.9) 100%
-          )
-        `,
-        borderTop: "0.05vw solid rgba(223, 186, 115, 0.2)",
-        borderBottom: "0.05vw solid rgba(223, 186, 115, 0.15)",
-        boxShadow: `
-          inset 0 0 1vw rgba(223, 186, 115, 0.05),
-          0 0 1vw rgba(0,0,0,0.18)
-        `,
-      }}
-    >
-      {/* LEFT BRAND */}
-      <Typography
-        sx={{
-          color: "#1e180d",
-          background:
-            "linear-gradient(135deg, #DFBA73 0%, #C5A059 100%)",
-          fontSize: {
-            xs: "14px",
-            lg: "1.4vw",
-          },
-          fontWeight: 900,
-          whiteSpace: "nowrap",
-          padding: "0 3.5vw",
-          height: "100%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          flexShrink: 0,
-        }}
-      >
-        Aurasia Updates
-      </Typography> 
-
-      {/* NEWS TICKER */}
+    <>
+      <style>{`
+        @keyframes livePulse {
+          0% {
+            transform: scale(0.85);
+            opacity: 0.6;
+            box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.7);
+          }
+          50% {
+            transform: scale(1.15);
+            opacity: 1;
+            box-shadow: 0 0 0 0.5vw rgba(255, 59, 48, 0);
+          }
+          100% {
+            transform: scale(0.85);
+            opacity: 0.6;
+            box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.7);
+          }
+        }
+      `}</style>
       <Box
         sx={{
-          flex: 1,
-          overflow: "hidden",
-          height: "100%",
+          position: "relative",
+          width: "100%",
+          height: {
+            xs: "42px",
+            lg: "3.2vw",
+          },
           display: "flex",
-          alignItems: "center",
+          overflow: "hidden",
+          backdropFilter: "blur(1vw)",
+          background:
+            "linear-gradient(90deg, rgba(15, 12, 10, 0.95) 0%, rgba(24, 18, 14, 0.9) 50%, rgba(12, 10, 8, 0.98) 100%)",
+          borderTop: "0.08vw solid rgba(223, 186, 115, 0.3)",
+          borderBottom: "0.08vw solid rgba(223, 186, 115, 0.15)",
+          boxShadow:
+            "0 -0.2vw 2vw rgba(223, 186, 115, 0.05), inset 0 0 1.5vw rgba(223, 186, 115, 0.03)",
         }}
       >
-        <Marquee
-          speed={40}          // Lower = slower
-          gradient={false}
-          autoFill={true}
-          loop={0}
-          direction="left"       // Infinite
+        {/* LEFT BRAND BADGE (Floating capsule style) */}
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            gap: "0.6vw",
+            padding: " 0 1.4vw",
+            flexShrink: 0,
+            zIndex: 2,
+            borderRight: "0.08vw solid rgba(223, 186, 115, 0.15)",
+          }}
         >
-          {items.map((item, index) => (
-            <Typography
-              key={index}
-              component="span"
-              sx={{
+          <Typography
+            sx={{
+              fontFamily: "'Outfit', sans-serif !important",
+              color: "#dfba73",
+              fontSize: {
+                xs: "11px",
+                lg: "0.9vw",
+              },
+              fontWeight: 800,
+              whiteSpace: "nowrap",
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+            }}
+          >
+            Aurasia Updates
+          </Typography>
+        </Box>
 
-                textTransform: "lowercase",
-                color: "#fff",
-                fontSize: {
-                  xs: "14px",
-                  lg: "1.5vw",
-                },
-                fontWeight: 800,
-                whiteSpace: "nowrap",
-                mx: "1vw",
-                flexShrink: 0,
-              }}
-            >
-              {item?.description || ""}
-            </Typography>
-          ))}
-        </Marquee>
+        {/* NEWS TICKER (With edge-fade overlay effect) */}
+        <Box
+          sx={{
+            flex: 1,
+            overflow: "hidden",
+            height: "100%",
+            display: "flex",
+            alignItems: "center",
+            zIndex: 1,
+            maskImage:
+              "linear-gradient(to right, transparent 0%, black 3vw, black calc(100% - 3vw), transparent 100%)",
+            WebkitMaskImage:
+              "linear-gradient(to right, transparent 0%, black 3vw, black calc(100% - 3vw), transparent 100%)",
+          }}
+        >
+          <Marquee
+            speed={35}
+            gradient={false}
+            autoFill={true}
+            loop={0}
+            direction="left"
+          >
+            {items.map((item, index) => (
+              <React.Fragment key={index}>
+                <Typography
+                  component="span"
+                  sx={{
+                    fontFamily: "'Outfit', sans-serif !important",
+                    color: "#f3ede4",
+                    fontSize: {
+                      xs: "14px",
+                      lg: "1.2vw",
+                    },
+                    fontWeight: 500,
+                    whiteSpace: "nowrap",
+                    mx: "1.5vw",
+                    letterSpacing: "0.03em",
+                    flexShrink: 0,
+                  }}
+                >
+                  {item?.description || ""}
+                </Typography>
+                <Typography
+                  component="span"
+                  sx={{
+                    fontFamily: "'Outfit', sans-serif !important",
+                    color: "#dfba73",
+                    fontSize: {
+                      xs: "14px",
+                      lg: "1.1vw",
+                    },
+                    fontWeight: 700,
+                    mx: "1vw",
+                    userSelect: "none",
+                    opacity: 0.8,
+                    filter: "drop-shadow(0 0 0.3vw rgba(223, 186, 115, 0.4))",
+                  }}
+                >
+                  ✦
+                </Typography>
+              </React.Fragment>
+            ))}
+          </Marquee>
+        </Box>
       </Box>
-    </Box>
+    </>
   );
 };
 

@@ -63,7 +63,8 @@ const WorldClockHorizontal = () => {
     <Box
       sx={{
         width: "100%",
-        background: "linear-gradient(135deg, rgba(20, 16, 12, 0.75) 0%, rgba(35, 28, 20, 0.8) 50%, rgba(15, 12, 8, 0.75) 100%)",
+        background:
+          "linear-gradient(135deg, rgba(20, 16, 12, 0.75) 0%, rgba(35, 28, 20, 0.8) 50%, rgba(15, 12, 8, 0.75) 100%)",
         backdropFilter: "blur(12px)",
         borderRadius: { xs: "12px", md: "1.2vw" },
         border: "0.15vw solid rgba(223, 186, 115, 0.3)",
@@ -78,7 +79,7 @@ const WorldClockHorizontal = () => {
         },
         gap: {
           xs: "12px 8px",
-          sm: "1.5vw",
+          sm: "1vw",
         },
         boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.4)",
       }}
@@ -108,11 +109,11 @@ const WorldClockHorizontal = () => {
             sx={{
               width: {
                 xs: "24px",
-                md: "2vw",
+                md: "2.1vw",
               },
               height: {
                 xs: "24px",
-                md: "2vw",
+                md: "2.1vw",
               },
               borderRadius: "50%",
               overflow: "hidden",
@@ -147,7 +148,7 @@ const WorldClockHorizontal = () => {
               sx={{
                 fontSize: {
                   xs: "11px",
-                  md: "0.85vw",
+                  md: "1.2vw",
                 },
                 fontWeight: 700,
                 color: "rgba(223, 186, 115, 0.85)",
@@ -162,7 +163,7 @@ const WorldClockHorizontal = () => {
               sx={{
                 fontSize: {
                   xs: "13px",
-                  md: "1.1vw",
+                  md: "1.2vw",
                 },
                 fontWeight: 800,
                 color: "#ffffff",
@@ -181,4 +182,3 @@ const WorldClockHorizontal = () => {
 };
 
 export default WorldClockHorizontal;
-

@@ -12,11 +12,11 @@ const ErrorPage = () => {
       <style>{`
         .ep-root {
           min-height: 100dvh;
-          background: #0C0B28;
+          background: radial-gradient(circle at center, #1c140f 0%, #0a0806 100%);
           display: flex;
           flex-direction: column;
           align-items: center;
-          justify-content: center;
+          justifyContent: center;
           font-family: 'DM Sans', sans-serif;
           overflow: hidden;
           position: relative;
@@ -35,18 +35,18 @@ const ErrorPage = () => {
         .ep-blob--1 {
           width: 520px; height: 420px;
           top: -120px; left: -100px;
-          background: radial-gradient(circle, #1a4a8a 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(223, 186, 115, 0.15) 0%, transparent 70%);
         }
         .ep-blob--2 {
           width: 400px; height: 380px;
           bottom: -80px; right: -60px;
-          background: radial-gradient(circle, #0e3060 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(197, 160, 89, 0.1) 0%, transparent 70%);
         }
         .ep-blob--3 {
           width: 260px; height: 260px;
           top: 50%; left: 50%;
           transform: translate(-50%, -50%);
-          background: radial-gradient(circle, #2e6fbf22 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(223, 186, 115, 0.08) 0%, transparent 70%);
         }
         .ep-mounted .ep-blob { opacity: 1; }
 
@@ -54,7 +54,7 @@ const ErrorPage = () => {
         .ep-grid {
           position: absolute;
           inset: 0;
-          background-image: radial-gradient(circle, #ffffff0a 1px, transparent 1px);
+          background-image: radial-gradient(circle, rgba(223, 186, 115, 0.06) 1px, transparent 1px);
           background-size: 36px 36px;
           pointer-events: none;
         }
@@ -63,12 +63,12 @@ const ErrorPage = () => {
         .ep-ring {
           position: absolute;
           border-radius: 50%;
-          border: 1px solid #ffffff08;
+          border: 1px solid rgba(223, 186, 115, 0.04);
           pointer-events: none;
           animation: ep-spin 30s linear infinite;
         }
-        .ep-ring--1 { width: 600px; height: 600px; border-color: #ffffff06; animation-duration: 40s; }
-        .ep-ring--2 { width: 800px; height: 800px; border-color: #ffffff04; animation-duration: 60s; animation-direction: reverse; }
+        .ep-ring--1 { width: 600px; height: 600px; border-color: rgba(223, 186, 115, 0.03); animation-duration: 40s; }
+        .ep-ring--2 { width: 800px; height: 800px; border-color: rgba(223, 186, 115, 0.02); animation-duration: 60s; animation-direction: reverse; }
         @keyframes ep-spin { to { transform: rotate(360deg); } }
 
         /* Card container */
@@ -84,6 +84,12 @@ const ErrorPage = () => {
           opacity: 0;
           transform: translateY(24px);
           transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+          background: linear-gradient(135deg, rgba(25, 20, 15, 0.75) 0%, rgba(35, 28, 22, 0.8) 50%, rgba(15, 12, 10, 0.75) 100%);
+          border: 1px solid rgba(223, 186, 115, 0.25);
+          backdrop-filter: blur(12px);
+          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 0 30px rgba(223, 186, 115, 0.05);
+          border-radius: 24px;
+          padding: 48px 32px;
         }
         .ep-mounted .ep-card {
           opacity: 1;
@@ -95,7 +101,7 @@ const ErrorPage = () => {
           position: relative;
           display: flex;
           align-items: center;
-          justify-content: center;
+          justifyContent: center;
         }
 
         /* Ping animation for the icon glow */
@@ -103,7 +109,7 @@ const ErrorPage = () => {
           position: absolute;
           inset: -20px;
           border-radius: 50%;
-          background: radial-gradient(circle, #2563eb18 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(223, 186, 115, 0.12) 0%, transparent 70%);
           animation: ep-pulse 3s ease-in-out infinite;
         }
         @keyframes ep-pulse {
@@ -114,10 +120,9 @@ const ErrorPage = () => {
         /* Logo */
         .ep-logo {
           display: block;
-          height: 48px;
+          height: 64px;
           width: auto;
-          opacity: 0.7;
-          filter: brightness(0) invert(1);
+          opacity: 1;
           margin-bottom: 4px;
         }
 
@@ -125,7 +130,7 @@ const ErrorPage = () => {
         .ep-divider {
           width: 1px;
           height: 48px;
-          background: linear-gradient(to bottom, transparent, #ffffff18, transparent);
+          background: linear-gradient(to bottom, transparent, rgba(223, 186, 115, 0.15), transparent);
         }
 
         /* Text content */
@@ -140,23 +145,24 @@ const ErrorPage = () => {
           display: inline-flex;
           align-items: center;
           gap: 6px;
-          background: #1e3a5f;
-          border: 1px solid #2d5a9e40;
-          color: #7eb3f7;
+          background: rgba(223, 186, 115, 0.12);
+          border: 1px solid rgba(223, 186, 115, 0.3);
+          color: #dfba73;
           font-family: 'DM Sans', sans-serif;
           font-size: 11px;
-          font-weight: 400;
+          font-weight: 500;
           letter-spacing: 0.12em;
           text-transform: uppercase;
-          padding: 5px 12px;
+          padding: 5px 14px;
           border-radius: 100px;
           margin: 0 auto;
         }
         .ep-badge-dot {
           width: 6px;
           height: 6px;
-          background: #4d9cf8;
+          background: #dfba73;
           border-radius: 50%;
+          box-shadow: 0 0 8px #dfba73;
           animation: ep-blink 2s ease-in-out infinite;
         }
         @keyframes ep-blink {
@@ -166,21 +172,21 @@ const ErrorPage = () => {
 
         .ep-heading {
           font-family: 'Syne', sans-serif;
-          font-size: clamp(26px, 5vw, 42px);
+          font-size: clamp(26px, 5vw, 40px);
           font-weight: 800;
-          line-height: 1.1;
+          line-height: 1.2;
           color: #f0f6ff;
           letter-spacing: -0.02em;
         }
         .ep-heading em {
           font-style: normal;
-          color: #4d9cf8;
+          color: #dfba73;
         }
 
         .ep-sub {
           font-size: 15px;
           font-weight: 300;
-          color: #8ba8cc;
+          color: #a89c92;
           line-height: 1.65;
           max-width: 400px;
           margin: 0 auto;
@@ -191,7 +197,7 @@ const ErrorPage = () => {
           display: flex;
           gap: 20px;
           align-items: flex-end;
-          justify-content: center;
+          justifyContent: center;
           margin-top: 4px;
         }
 
@@ -200,15 +206,15 @@ const ErrorPage = () => {
           flex-direction: column;
           align-items: center;
           gap: 8px;
-          opacity: 0.7;
+          opacity: 0.85;
         }
         .ep-device-label {
           font-size: 10px;
-          font-weight: 400;
+          font-weight: 500;
           letter-spacing: 0.1em;
           text-transform: uppercase;
-          color: #4d9cf8;
-          opacity: 0.7;
+          color: #dfba73;
+          opacity: 0.9;
         }
 
         /* Action row */
@@ -220,14 +226,14 @@ const ErrorPage = () => {
         }
         .ep-hint {
           font-size: 13px;
-          color: #4d6a8a;
+          color: #8c7e73;
         }
 
         /* Bottom fade line */
         .ep-line {
           width: 160px;
           height: 1px;
-          background: linear-gradient(to right, transparent, #2563eb40, transparent);
+          background: linear-gradient(to right, transparent, rgba(223, 186, 115, 0.25), transparent);
           margin-top: 8px;
         }
       `}</style>
@@ -243,8 +249,7 @@ const ErrorPage = () => {
 
         <div className="ep-card">
           {/* Logo */}
-          <img src="/images/logo.svg" alt="Logo" className="ep-logo" />
-
+          <img src="/images/logo.png" alt="Logo" className="ep-logo" />
 
           {/* Devices illustration */}
           <div className="ep-icon-wrap">
@@ -260,11 +265,13 @@ const ErrorPage = () => {
             </div>
 
             <h1 className="ep-heading">
-              Available on <em>Desktop</em><br />& TV only
+              Available on <em>Desktop</em>
+              <br />& TV only
             </h1>
 
             <p className="ep-sub">
-              This experience is optimised for larger screens. Please switch to a desktop computer or TV to continue.
+              This experience is optimised for larger screens. Please switch to
+              a desktop computer or TV to continue.
             </p>
           </div>
 
@@ -272,22 +279,75 @@ const ErrorPage = () => {
           <div className="ep-devices">
             <div className="ep-device">
               <svg width="64" height="44" viewBox="0 0 64 44" fill="none">
-                <rect x="1" y="1" width="62" height="38" rx="4" stroke="#4d9cf8" strokeWidth="1.5" fill="#0d2040" />
-                <rect x="8" y="8" width="48" height="26" rx="2" fill="#122a52" />
-                <rect x="22" y="39" width="20" height="4" fill="#1a3a6a" />
-                <rect x="16" y="43" width="32" height="1" rx="0.5" fill="#1e4070" />
+                <rect
+                  x="1"
+                  y="1"
+                  width="62"
+                  height="38"
+                  rx="4"
+                  stroke="#dfba73"
+                  strokeWidth="1.5"
+                  fill="#1c1510"
+                />
+                <rect
+                  x="8"
+                  y="8"
+                  width="48"
+                  height="26"
+                  rx="2"
+                  fill="#231a14"
+                />
+                <rect x="22" y="39" width="20" height="4" fill="#2c2118" />
+                <rect
+                  x="16"
+                  y="43"
+                  width="32"
+                  height="1"
+                  rx="0.5"
+                  fill="#362a1e"
+                />
               </svg>
               <span className="ep-device-label">Desktop</span>
             </div>
 
-            <div style={{ width: 1, height: 48, background: "#ffffff08", alignSelf: "center" }} />
+            <div
+              style={{
+                width: 1,
+                height: 48,
+                background: "rgba(223, 186, 115, 0.15)",
+                alignSelf: "center",
+              }}
+            />
 
             <div className="ep-device">
               <svg width="80" height="56" viewBox="0 0 80 56" fill="none">
-                <rect x="1" y="1" width="78" height="46" rx="4" stroke="#4d9cf8" strokeWidth="1.5" fill="#0d2040" />
-                <rect x="6" y="6" width="68" height="36" rx="2" fill="#122a52" />
-                <rect x="30" y="47" width="20" height="4" fill="#1a3a6a" />
-                <rect x="24" y="51" width="32" height="4" rx="2" fill="#1e4070" />
+                <rect
+                  x="1"
+                  y="1"
+                  width="78"
+                  height="46"
+                  rx="4"
+                  stroke="#dfba73"
+                  strokeWidth="1.5"
+                  fill="#1c1510"
+                />
+                <rect
+                  x="6"
+                  y="6"
+                  width="68"
+                  height="36"
+                  rx="2"
+                  fill="#231a14"
+                />
+                <rect x="30" y="47" width="20" height="4" fill="#2c2118" />
+                <rect
+                  x="24"
+                  y="51"
+                  width="32"
+                  height="4"
+                  rx="2"
+                  fill="#362a1e"
+                />
               </svg>
               <span className="ep-device-label">TV</span>
             </div>
@@ -305,33 +365,116 @@ const ErrorPage = () => {
 
 function DevicesIllustration() {
   return (
-    <svg width="220" height="140" viewBox="0 0 220 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      width="220"
+      height="140"
+      viewBox="0 0 220 140"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       {/* Glow effect behind screens */}
-      <ellipse cx="110" cy="95" rx="90" ry="28" fill="#1a4a8a" opacity="0.35" />
+      <ellipse cx="110" cy="95" rx="90" ry="28" fill="#dfba73" opacity="0.15" />
 
       {/* Monitor */}
-      <rect x="34" y="10" width="152" height="96" rx="8" fill="#0d1e38" stroke="#2a5090" strokeWidth="1.5" />
-      <rect x="42" y="18" width="136" height="80" rx="4" fill="#0f2444" />
+      <rect
+        x="34"
+        y="10"
+        width="152"
+        height="96"
+        rx="8"
+        fill="#1c1510"
+        stroke="#dfba73"
+        strokeWidth="1.5"
+      />
+      <rect x="42" y="18" width="136" height="80" rx="4" fill="#231a14" />
 
       {/* Screen content shimmer lines */}
-      <rect x="54" y="30" width="80" height="6" rx="3" fill="#1e4a8a" opacity="0.8" />
-      <rect x="54" y="44" width="56" height="4" rx="2" fill="#1a3d72" opacity="0.6" />
-      <rect x="54" y="54" width="96" height="4" rx="2" fill="#1a3d72" opacity="0.4" />
-      <rect x="54" y="64" width="72" height="4" rx="2" fill="#1a3d72" opacity="0.35" />
-      <rect x="54" y="74" width="40" height="4" rx="2" fill="#1a3d72" opacity="0.25" />
+      <rect
+        x="54"
+        y="30"
+        width="80"
+        height="6"
+        rx="3"
+        fill="#dfba73"
+        opacity="0.6"
+      />
+      <rect
+        x="54"
+        y="44"
+        width="56"
+        height="4"
+        rx="2"
+        fill="#dfba73"
+        opacity="0.4"
+      />
+      <rect
+        x="54"
+        y="54"
+        width="96"
+        height="4"
+        rx="2"
+        fill="#dfba73"
+        opacity="0.3"
+      />
+      <rect
+        x="54"
+        y="64"
+        width="72"
+        height="4"
+        rx="2"
+        fill="#dfba73"
+        opacity="0.2"
+      />
+      <rect
+        x="54"
+        y="74"
+        width="40"
+        height="4"
+        rx="2"
+        fill="#dfba73"
+        opacity="0.1"
+      />
 
       {/* Screen glow dot */}
-      <circle cx="150" cy="50" r="18" fill="#1d4d9b" opacity="0.4" />
-      <circle cx="150" cy="50" r="10" fill="#2563eb" opacity="0.5" />
+      <circle cx="150" cy="50" r="18" fill="#dfba73" opacity="0.1" />
+      <circle cx="150" cy="50" r="10" fill="#dfba73" opacity="0.2" />
 
       {/* Stand */}
-      <rect x="98" y="106" width="24" height="14" rx="2" fill="#1a3060" />
-      <rect x="84" y="120" width="52" height="6" rx="3" fill="#1e3a70" />
+      <rect x="98" y="106" width="24" height="14" rx="2" fill="#261e16" />
+      <rect x="84" y="120" width="52" height="6" rx="3" fill="#30261d" />
 
       {/* Crossed-out phone (subtle overlay) */}
-      <rect x="172" y="70" width="32" height="50" rx="4" fill="#0d1e38" stroke="#1a3a6a" strokeWidth="1" opacity="0.7" />
-      <line x1="168" y1="66" x2="208" y2="124" stroke="#e05555" strokeWidth="1.5" strokeLinecap="round" opacity="0.7" />
-      <line x1="208" y1="66" x2="168" y2="124" stroke="#e05555" strokeWidth="1.5" strokeLinecap="round" opacity="0.7" />
+      <rect
+        x="172"
+        y="70"
+        width="32"
+        height="50"
+        rx="4"
+        fill="#1c1510"
+        stroke="#dfba73"
+        strokeWidth="1"
+        opacity="0.75"
+      />
+      <line
+        x1="168"
+        y1="66"
+        x2="208"
+        y2="124"
+        stroke="#e05555"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        opacity="0.8"
+      />
+      <line
+        x1="208"
+        y1="66"
+        x2="168"
+        y2="124"
+        stroke="#e05555"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        opacity="0.8"
+      />
     </svg>
   );
 }
