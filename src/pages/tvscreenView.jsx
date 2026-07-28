@@ -12,7 +12,7 @@ import {
 } from "../api/api";
 import io from "socket.io-client";
 import { useSpotRate } from "../context/SpotRateContext";
-import mainLogo from "/images/logo.png";
+import mainLogo from "/images/logo1.png";
 import WorldClockHorizontal from "../components/WorldClock";
 import SystemClock from "../components/SystemClock";
 import PoweredByAurify from "../components/PoweredByAurify";
@@ -269,7 +269,7 @@ function TvScreen() {
           <Box
             sx={{
               height: "auto",
-              width: { xs: "40vw", sm: "20vw" },
+              width: { xs: "40vw", sm: "27vw" },
               marginBottom: { xs: "20px", sm: "0vw" },
             }}
           >

@@ -249,7 +249,7 @@ const ErrorPage = () => {
 
         <div className="ep-card">
           {/* Logo */}
-          <img src="/images/logo.png" alt="Logo" className="ep-logo" />
+          <img src="/images/logo1.png" alt="Logo" className="ep-logo" />
 
           {/* Devices illustration */}
           <div className="ep-icon-wrap">
